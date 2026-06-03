@@ -19,26 +19,31 @@ server.use(cors());
 // express.json() gør det muligt for vores server at forstå JSON-data fra frontend.
 server.use(express.json());
 
-let activityRoutes = require('./routes/activityRoutes')
+let activityRoutes = require('./routes/activityRoutes');
+let stayRoutes = require('./routes/stayRoutes');
+let reviewRoutes = require('./routes/reviewRoutes');
 
 // Vi adskiller forskellige routes i forskellige filer for at holde koden bedre organiseret. Når vi skriver server.use(activityRoutes), fortæller vi serveren, at den skal bruge de routes, der er defineret i activityRoutes-filen.
-server.use(activityRoutes)
+server.use(activityRoutes);
+server.use(stayRoutes);
+server.use(reviewRoutes);
 
 /* ROUTES */
 
 // OPGAVE: stays og reviews ligger stadig her i server.js.
 // Det er DEM, I skal flytte ud i models/, handlers/ og routes/ —
 // præcis som activities er gjort. Slet dem herfra, når I er færdige.
-let stays = require("./stays.json");
-let reviews = require("./reviews.json");
 
-server.get("/stays", (req, res) => {
+/* let stays = require("./stays.json");
+let reviews = require("./reviews.json");
+ */
+/* server.get("/stays", (req, res) => {
   res.json(stays);
 });
 
 server.get("/reviews", (req, res) => {
   res.json(reviews);
-});
+}); */
 
 server.listen(port, () => {
   console.log(`Serveren kører på http://localhost:${port}`);
