@@ -7,7 +7,6 @@ const staySchema = new mongoose.Schema({
   numberOfPersons: Number,
   discountInPercent: Number,
   price: Number,
-  includes: [String],
   image: String,
 },
 {

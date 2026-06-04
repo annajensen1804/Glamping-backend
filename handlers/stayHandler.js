@@ -29,7 +29,6 @@ async function createStay(req, res) {
       numberOfPersons: req.body.numberOfPersons,
       discountInPercent: req.body.discountInPercent,
       price: req.body.price,
-      includes: req.body.includes,
       image: req.body.image,
     });
     res.status(201).json(newStay);
@@ -47,7 +46,6 @@ async function updateStay(req, res) {
             numberOfPersons: req.body.numberOfPersons,
             discountInPercent: req.body.discountInPercent,
             price: req.body.price,
-            includes: req.body.includes,
             image: req.body.image,
         },
     { new: true },

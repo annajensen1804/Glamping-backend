@@ -1,5 +1,4 @@
 const Review = require("../models/Review");
-const Stay = require("../models/Review");
 
 async function getAllReviews(req, res) {
     const reviews = await Review.find();
@@ -24,11 +23,11 @@ async function getReviewById(req, res) {
 
 async function createReview(req, res) {
     const newReview = await Review.create({
-      name: String,
-      age: Number,
-      image: String,
-      review: String,
-      stay: String,
+      name: req.body.name,
+      age: req.body.age,
+      image: req.body.image,
+      review: req.body.review,
+      stay: req.body.stay
     });
     res.status(201).json(newReview);
 }
@@ -40,11 +39,11 @@ async function updateReview(req, res) {
         const updatedReview = await Review.findByIdAndUpdate(
           id,
           {
-            name: String,
-            age: Number,
-            image: String,
-            review: String,
-            stay: String,
+            name: req.body.name,
+            age: req.body.age,
+            image: req.body.image,
+            review: req.body.review,
+            stay: req.body.stay
           },
           { new: true },
         );
